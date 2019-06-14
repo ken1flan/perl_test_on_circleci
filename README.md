@@ -6,7 +6,7 @@ Sample of perl test on circleci
 ### イメージの作成
 
 ```bash
-$ docker build -t perl_test .
+$ docker build -t ken1flan/perl_test_on_circleci .
 ```
 
 ### コンテナ起動
@@ -20,3 +20,7 @@ $ docker run --name perl_test -it -d perl_test
 ```bash
 $ docker exec -it perl_test bash
 ```
+
+## 参照
+
+- https://blog.yuuk.io/entry/next-is-docker
