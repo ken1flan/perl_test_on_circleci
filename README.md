@@ -12,7 +12,7 @@ $ docker build -t ken1flan/perl_test_on_circleci .
 ### コンテナ起動
 
 ```bash
-$ docker run --name perl_test -it -d perl_test
+$ docker run --name perl_test_on_circleci -it -d ken1flan/perl_test_on_circleci
 ```
 
 ### コンテナ上のbashを実行
