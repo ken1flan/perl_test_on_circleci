@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: ken1flan/perl_test_on_circleci:latest
-
     steps:
       - checkout
       - restore_cache:
@@ -15,4 +14,20 @@ jobs:
           key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
           paths:
             - local
+  test:
+    docker:
+      - image: ken1flan/perl_test_on_circleci:latest
+    steps:
+      - checkout
+      - run:
+         name: test
+         command: perl test.pl
 
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
