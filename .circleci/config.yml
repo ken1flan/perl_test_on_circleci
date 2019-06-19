@@ -4,6 +4,9 @@ jobs:
     docker:
       - image: ken1flan/perl_test_on_circleci:latest
       - image: mariadb:10.3
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: circleci
     steps:
       - checkout
       - restore_cache:
