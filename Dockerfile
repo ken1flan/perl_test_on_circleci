@@ -4,6 +4,7 @@ RUN yum install -y wget
 RUN yum groupinstall -y "Development Tools"
 
 RUN yum install -y mariadb
+RUN yum install -y mariadb-libs
 RUN yum install -y mariadb-devel
 
 RUN yum install -y perl
