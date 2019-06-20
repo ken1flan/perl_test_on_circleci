@@ -39,7 +39,7 @@ jobs:
       - run:
          name: set up database
          command: |
-          mysql -h localhost -u root circleci < create_table.sql
+          mysql -h localhost -u root circleci < create_tables.sql
           mysql -h localhost -u root circleci -e="SELECT * FROM cats;"
       - run:
          name: test
