@@ -7,19 +7,19 @@ CREATE TABLE cats (
   PRIMARY KEY(id)
 );
 
-INSERT INTO cats
+INSERT INTO cats (name, color)
 VALUES (
   'りん'
 , 'シャム'
 );
 
-INSERT INTO cats
+INSERT INTO cats (name, color)
 VALUES (
   'たろう'
 , 'シャム'
 );
 
-INSERT INTO cats
+INSERT INTO cats (name, color)
 VALUES (
   'じろう'
 , '白'
