@@ -40,7 +40,7 @@ jobs:
          name: set up database
          command: |
           mysql -h 127.0.0.1 -u root circleci < create_tables.sql
-          mysql -h 127.0.0.1 -u root circleci -e="SELECT * FROM cats;"
+          mysql -h 127.0.0.1 -u root circleci --execute="SELECT * FROM cats;"
       - run:
          name: test
          command: perl test.pl
