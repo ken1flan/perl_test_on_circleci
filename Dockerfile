@@ -2,6 +2,7 @@ FROM centos:7
 
 RUN yum install -y wget
 RUN yum groupinstall -y "Development Tools"
+RUN yum install -y nmap-ncat
 
 RUN yum install -y mariadb
 RUN yum install -y mariadb-libs
