@@ -18,6 +18,8 @@ my $dbh = DBI->connect(
 my $sth = $dbh->prepare("SELECT * FROM cats WHERE id = ?");
 $sth->execute(1);
 my $hash_ref = $sth->fetchrow_hashref;
+print $hash_ref->{name};
+print $hash_ref->{color};
 
 ok( $hash_ref->{name} eq "りん" );
 ok( $hash_ref->{color} eq "シャム" );
