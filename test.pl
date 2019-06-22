@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 use lib "./local/lib/perl5";
 use DBI;
 use Test::Simple tests => 2;
