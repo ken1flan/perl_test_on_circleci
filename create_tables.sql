@@ -9,7 +9,7 @@ CREATE TABLE cats (
   name VARCHAR(64),
   color VARCHAR(64),
   PRIMARY KEY(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO cats (name, color)
 VALUES (
