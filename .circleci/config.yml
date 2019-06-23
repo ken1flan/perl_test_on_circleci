@@ -27,6 +27,8 @@ jobs:
     executor: my-executor
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
       - run:
          name: waiting for mariadb to be ready
          command: |
