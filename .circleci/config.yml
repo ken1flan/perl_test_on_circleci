@@ -7,7 +7,6 @@ executors:
       - image: mariadb:10.3
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: circleci
 
 jobs:
   build:
@@ -41,7 +40,7 @@ jobs:
       - run:
          name: set up database
          command: |
-          mysql -h 127.0.0.1 -u root circleci < create_tables.sql
+          mysql -h 127.0.0.1 -u root < create_tables.sql
           mysql -h 127.0.0.1 -u root circleci --execute="SELECT * FROM cats;"
       - run:
          name: test
