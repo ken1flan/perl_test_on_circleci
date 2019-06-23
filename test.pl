@@ -15,6 +15,7 @@ my $dbh = DBI->connect(
   ";mariadb_connect_timeout=10",
   "root", ""
 );
+$dbh->do("set names sjis");
 
 my $sth = $dbh->prepare("SELECT * FROM cats WHERE id = ?");
 $sth->execute(1);
