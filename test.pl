@@ -16,7 +16,7 @@ my $dbh = DBI->connect(
   ";mariadb_connect_timeout=10",
   "root", ""
 );
-$dbh->do("set names sjis");
+$dbh->do("set names utf8");
 
 my $sth = $dbh->prepare("SELECT * FROM cats WHERE id = ?");
 $sth->execute(1);
