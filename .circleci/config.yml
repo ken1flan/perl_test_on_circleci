@@ -1,8 +1,16 @@
 version: 2.1
-jobs:
-  build:
+
+executors:
+  my-executor:
     docker:
       - image: ken1flan/perl_test_on_circleci:latest
+      - image: mariadb:10.3
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+
+jobs:
+  build:
+    executor: my-executor
     steps:
       - checkout
       - restore_cache:
@@ -15,10 +23,25 @@ jobs:
           paths:
             - local
   test:
-    docker:
-      - image: ken1flan/perl_test_on_circleci:latest
+    executor: my-executor
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+      - run:
+         name: waiting for mariadb to be ready
+         command: |
+          for i in `seq 10`; do
+            nc -z 127.0.0.1 3306 && echo Success && exit 0
+            echo -n .
+            sleep 1
+          done
+          echo Failed waiging for mariadb to be ready && exit 1
+      - run:
+         name: set up database
+         command: |
+          mysql -h 127.0.0.1 -u root < create_tables.sql
+          mysql -h 127.0.0.1 -u root circleci --execute="SELECT * FROM cats;"
       - run:
          name: test
          command: perl test.pl
