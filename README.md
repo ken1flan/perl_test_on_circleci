@@ -5,26 +5,42 @@ Sample of perl test on circleci
 
 ### イメージの作成
 
-```bash
+```console
 $ docker build -t ken1flan/perl_test_on_circleci .
 ```
 
 ### DockerHubにpush
 
-```bash
+```console
 docker push ken1flan/perl_test_on_circleci:latest
 ```
 
 ### コンテナ起動
 
-```bash
-$ docker run --name perl_test_on_circleci -it -d ken1flan/perl_test_on_circleci
+```console
+$ docker-compose up
 ```
 
-### コンテナ上のbashを実行
+### Perlコンテナ上のbashを実行
 
-```bash
-$ docker exec -it perl_test_on_circleci bash
+```console
+$ docker-compose run perl bash
+```
+
+### Perlコンテナ
+
+### モジュールをインストール
+
+```console
+# cd /code
+# carton install
+```
+
+### テスト
+
+```console
+# cd /code
+# perl test.pl
 ```
 
 ## 参照

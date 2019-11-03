@@ -3,15 +3,19 @@ use warnings;
 use utf8;
 use open IO => qw/:encoding(UTF-8) :std/;
 use lib "./local/lib/perl5";
+use Config::YAML;
 use Encode::Guess qw/cp932 euc-jp 7bit-jis utf8 latin1/;
 use DBI;
 use Test::Simple tests => 2;
 
+my $env = $ENV{APP_ENV} ? $ENV{APP_ENV} : 'development';
+my $config = Config::YAML->new(config => "./${env}.yml");
+
 my $dbh = DBI->connect(
-  "DBI:MariaDB:dbname=circleci".
-  ";host=127.0.0.1".
-  ";mariadb_connect_timeout=10",
-  "root", ""
+  "DBI:MariaDB:dbname=".$config->{database}->{dbname}.
+  ";host=".$config->{database}->{host}.
+  ";mariadb_connect_timeout=".$config->{database}->{timeout},
+  $config->{database}->{user}, $config->{database}->{password}
 );
 $dbh->do("set names utf8");
 

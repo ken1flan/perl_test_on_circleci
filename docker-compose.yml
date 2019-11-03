@@ -1,0 +1,10 @@
+version: '2'
+services:
+  perl:
+    build: .
+    volumes:
+      - .:/code
+    depends_on:
+      - mariadb
+  mariadb:
+    image: circleci/mariadb:10.3
