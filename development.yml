@@ -1,0 +1,5 @@
+database:
+  dbname: circleci
+  host: mariadb
+  user: root
+  password: ""
