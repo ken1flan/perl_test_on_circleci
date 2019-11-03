@@ -1,5 +1,13 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
+  Config-YAML-1.42
+    pathname: M/MD/MDXI/Config-YAML-1.42.tar.gz
+    provides:
+      Config::YAML 1.42
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      YAML 0.35
   DBD-MariaDB-1.21
     pathname: P/PA/PALI/DBD-MariaDB-1.21.tar.gz
     provides:
@@ -207,3 +215,31 @@ DISTRIBUTIONS
       Storable 0
       perl 5.006002
       utf8 0
+  YAML-1.29
+    pathname: T/TI/TINITA/YAML-1.29.tar.gz
+    provides:
+      YAML 1.29
+      YAML::Any 1.29
+      YAML::Dumper undef
+      YAML::Dumper::Base undef
+      YAML::Error undef
+      YAML::Loader undef
+      YAML::Loader::Base undef
+      YAML::Marshall undef
+      YAML::Mo undef
+      YAML::Node undef
+      YAML::Tag undef
+      YAML::Type::blessed undef
+      YAML::Type::code undef
+      YAML::Type::glob undef
+      YAML::Type::ref undef
+      YAML::Type::regexp undef
+      YAML::Type::undef undef
+      YAML::Types undef
+      YAML::Warning undef
+      yaml_mapping undef
+      yaml_scalar undef
+      yaml_sequence undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.008001

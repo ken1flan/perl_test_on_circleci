@@ -27,6 +27,17 @@ $ docker-composerun up
 $ docker-compose run perl bash
 ```
 
+### Perlコンテナ
+
+### モジュールをインストール
+
+```console
+# cd /code
+# carton install
+```
+
+
+
 ## 参照
 
 - https://blog.yuuk.io/entry/next-is-docker
