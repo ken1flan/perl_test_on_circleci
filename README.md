@@ -18,13 +18,13 @@ docker push ken1flan/perl_test_on_circleci:latest
 ### コンテナ起動
 
 ```bash
-$ docker run --name perl_test_on_circleci -it -d ken1flan/perl_test_on_circleci
+$ docker-composerun up
 ```
 
-### コンテナ上のbashを実行
+### Perlコンテナ上のbashを実行
 
 ```bash
-$ docker exec -it perl_test_on_circleci bash
+$ docker-compose run perl bash
 ```
 
 ## 参照
