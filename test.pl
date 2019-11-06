@@ -17,11 +17,10 @@ my $dbh = DBI->connect(
   ";mariadb_connect_timeout=".$config->{database}->{timeout},
   $config->{database}->{user}, $config->{database}->{password}
 );
-$dbh->do("set names utf8");
 
 my $sth = $dbh->prepare("SELECT * FROM cats WHERE id = ?");
 $sth->execute(1);
 my $hash_ref = $sth->fetchrow_hashref;
 
-ok( $hash_ref->{name} eq "Rin" );
-ok( $hash_ref->{color} eq "Siamese" );
+ok( $hash_ref->{name} eq "りん" );
+ok( $hash_ref->{color} eq "シャム" );

@@ -13,18 +13,18 @@ CREATE TABLE cats (
 
 INSERT INTO cats (name, color)
 VALUES (
-  'Rin'
-, 'Siamese'
+  'りん'
+, 'シャム'
 );
 
 INSERT INTO cats (name, color)
 VALUES (
-  'Taro'
-, 'Siamese'
+  'たろう'
+, 'シャム'
 );
 
 INSERT INTO cats (name, color)
 VALUES (
-  'Jiro'
-, 'White'
+  'じろう'
+, 'しろ'
 );
