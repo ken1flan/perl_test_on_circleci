@@ -5,6 +5,13 @@ services:
     volumes:
       - .:/code
     depends_on:
-      - mariadb
-  mariadb:
-    image: circleci/mariadb:10.3
+      - db
+    #  - mariadb
+  # mariadb:
+  #   image: circleci/mariadb:10.3
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example

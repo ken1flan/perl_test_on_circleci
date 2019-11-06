@@ -3,6 +3,10 @@ FROM centos:7
 RUN yum install -y wget
 RUN yum groupinstall -y "Development Tools"
 RUN yum install -y nmap-ncat
+RUN localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
+ENV LANG="ja_JP.UTF-8" \
+    LANGUAGE="ja_JP:ja" \
+    LC_ALL="ja_JP.UTF-8"
 
 RUN yum install -y mariadb
 RUN yum install -y mariadb-libs

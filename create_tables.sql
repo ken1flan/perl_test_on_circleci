@@ -1,3 +1,5 @@
+SET character_set_server = utf8;
+
 DROP DATABASE IF EXISTS `circleci`;
 CREATE DATABASE circleci DEFAULT CHARACTER SET utf8;
 
@@ -13,18 +15,18 @@ CREATE TABLE cats (
 
 INSERT INTO cats (name, color)
 VALUES (
-  'Rin'
-, 'Siamese'
+  'りん'
+, 'シャム'
 );
 
 INSERT INTO cats (name, color)
 VALUES (
-  'Taro'
-, 'Siamese'
+  'たろう'
+, 'シャム'
 );
 
 INSERT INTO cats (name, color)
 VALUES (
-  'Jiro'
-, 'White'
+  'じろう'
+, '白'
 );
