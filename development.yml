@@ -3,3 +3,4 @@ database:
   host: mariadb
   user: root
   password: ""
+  timeout: 10
