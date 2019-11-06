@@ -23,5 +23,5 @@ my $sth = $dbh->prepare("SELECT * FROM cats WHERE id = ?");
 $sth->execute(1);
 my $hash_ref = $sth->fetchrow_hashref;
 
-ok( $hash_ref->{name} eq "Rin" );
-ok( $hash_ref->{color} eq "Siamese" );
+ok( $hash_ref->{name} eq "りん" );
+ok( $hash_ref->{color} eq "シャム" );
