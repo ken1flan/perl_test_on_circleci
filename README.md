@@ -1,5 +1,6 @@
 # perl_test_on_circleci
-Sample of perl test on circleci
+
+Sample application of perl on docker, and testing on circleci.
 
 ## 準備
 
