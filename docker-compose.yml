@@ -1,7 +1,9 @@
 version: '2'
 services:
   perl:
-    build: .
+    image: ken1flan/perl_test_on_circleci:latest
+    ports:
+      - "8080:80"
     volumes:
       - .:/code
     depends_on:
