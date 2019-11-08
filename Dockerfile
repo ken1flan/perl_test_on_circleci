@@ -6,6 +6,8 @@ RUN yum install -y nmap-ncat
 
 RUN yum install -y httpd
 RUN yum install -y httpd-devel
+COPY httpd/conf.d/01-cgi.conf /etc/httpd/conf.d
+COPY cgi-bin/index.cgi /var/www/cgi-bin/
 
 RUN yum install -y mariadb
 RUN yum install -y mariadb-libs
