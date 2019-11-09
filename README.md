@@ -25,7 +25,7 @@ $ docker-compose up
 ### Perlコンテナ上のbashを実行
 
 ```console
-$ docker-compose run perl bash
+$ docker-compose exec perl bash
 ```
 
 ### Perlコンテナ
