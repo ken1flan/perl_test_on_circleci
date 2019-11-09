@@ -8,5 +8,6 @@ services:
       - .:/code
     depends_on:
       - mariadb
+    privileged: true
   mariadb:
     image: circleci/mariadb:10.3
