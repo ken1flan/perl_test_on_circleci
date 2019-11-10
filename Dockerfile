@@ -29,6 +29,9 @@ COPY mariadb/character_set.cnf /etc/my.cnf.d/
 
 RUN yum install -y libpng libpng-devel
 
+COPY yum.repos.d/google-chrome.repo /etc/yum.repos.d
+RUN yum install -y google-chrome-stable
+
 RUN yum install -y perl
 RUN yum install -y perl-devel
 RUN yum install -y perl-App-cpanminus
