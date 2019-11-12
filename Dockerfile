@@ -19,7 +19,7 @@ RUN yum install -y httpd
 RUN yum install -y httpd-devel
 RUN systemctl enable httpd.service
 COPY httpd/conf.d/01-cgi.conf /etc/httpd/conf.d
-COPY cgi-bin/index.cgi /var/www/cgi-bin/
+COPY app/cgi-bin/index.cgi /var/www/cgi-bin/
 EXPOSE 80
 
 RUN yum install -y mariadb
