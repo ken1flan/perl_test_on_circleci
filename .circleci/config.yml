@@ -44,7 +44,7 @@ jobs:
           mysql -h 127.0.0.1 -u root circleci --execute="SELECT * FROM cats;"
       - run:
          name: test
-         command: APP_ENV=test perl test.pl
+         command: APP_ENV=test perl test/test.pl
 
 workflows:
   version: 2
