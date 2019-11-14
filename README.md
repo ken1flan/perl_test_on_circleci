@@ -41,7 +41,7 @@ $ docker-compose exec perl bash
 
 ```console
 # cd /code
-# perl test.pl
+# carton exec perl test.pl
 ```
 
 ## 参照

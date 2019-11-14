@@ -6,10 +6,11 @@ use lib "./local/lib/perl5";
 use Config::YAML;
 use Encode::Guess qw/cp932 euc-jp 7bit-jis utf8 latin1/;
 use DBI;
+use FindBin qw($Bin);
 use Test::Simple tests => 2;
 
 my $env = $ENV{APP_ENV} ? $ENV{APP_ENV} : 'development';
-my $config = Config::YAML->new(config => "./${env}.yml");
+my $config = Config::YAML->new(config => "$Bin/../${env}.yml");
 
 my $dbh = DBI->connect(
   "DBI:MariaDB:dbname=".$config->{database}->{dbname}.
