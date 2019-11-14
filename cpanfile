@@ -4,3 +4,4 @@ requires "DBD::MariaDB";
 requires "Config::YAML";
 requires "WWW::Mechanize::Chrome";
 requires "Carp::Always";
+requires "FindBin";
