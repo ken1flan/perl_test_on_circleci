@@ -45,6 +45,9 @@ jobs:
       - run:
          name: test
          command: APP_ENV=test carton exec perl test/test.pl
+      - run:
+         name: e2e_test
+         command: APP_ENV=test carton exec perl test/e2e_test.pl
 
 workflows:
   version: 2
