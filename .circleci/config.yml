@@ -11,6 +11,7 @@ executors:
 jobs:
   build:
     executor: my-executor
+    working_directory: /code
     steps:
       - checkout
       - restore_cache:
@@ -24,6 +25,7 @@ jobs:
             - local
   test:
     executor: my-executor
+    working_directory: /code
     steps:
       - checkout
       - restore_cache:
@@ -42,6 +44,12 @@ jobs:
          command: |
           mysql -h 127.0.0.1 -u root < create_tables.sql
           mysql -h 127.0.0.1 -u root circleci --execute="SELECT * FROM cats;"
+      - run:
+         name: setup httpd
+         command: |
+           rm -rf /var/www
+           ln -s /code/app /var/www
+           httpd
       - run:
          name: test
          command: APP_ENV=test carton exec perl test/test.pl

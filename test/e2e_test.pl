@@ -9,7 +9,7 @@ use WWW::Mechanize::Chrome;
 use Test::Simple tests => 1;
 
 my $mech = WWW::Mechanize::Chrome->new(headless=> 1);
-$mech->get('http://localhost/cgi-bin/index.cgi');
+$mech->get('http://127.0.0.1/cgi-bin/index.cgi');
 my $content = $mech->content;
 
 ok( $content =~ /Hello, World/ );
