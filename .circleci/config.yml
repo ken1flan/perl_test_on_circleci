@@ -15,21 +15,24 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+          key: cpanfile-cache-{{ .Environment.CI_CACHE_KEY }}-{{ checksum "cpanfile.snapshot" }}
       - run:
           name: carton install
           command: carton install --deployment
       - save_cache:
-          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+          key: cpanfile-cache-{{ .Environment.CI_CACHE_KEY }}-{{ checksum "cpanfile.snapshot" }}
           paths:
             - local
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./
   test:
     executor: my-executor
     working_directory: /code
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+      - attach_workspace:
+         at: .
       - run:
          name: waiting for mariadb to be ready
          command: |
