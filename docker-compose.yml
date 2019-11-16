@@ -6,6 +6,7 @@ services:
       - "8080:80"
     volumes:
       - .:/code
+      - ./app:/var/www
     depends_on:
       - mariadb
     privileged: true
