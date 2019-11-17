@@ -1,4 +1,10 @@
 #!/usr/bin/perl
+use strict;
+use warnings;
+use utf8;
+use File::Basename;
+my $dir = dirname(__FILE__);
+require "${dir}/../ApplicationCommon.pm";
 
 my $name_en = "red tabby";
 my $name_jp = "茶トラ";
