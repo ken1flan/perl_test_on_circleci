@@ -1,5 +1,5 @@
 database:
-  dbname: circleci
+  dbname: CatsDB
   host: mariadb
   user: root
   password: ""
