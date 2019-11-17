@@ -3,7 +3,7 @@ use warnings;
 use utf8;
 
 use FindBin qw($Bin);
-use lib "$Bin/..";
+use lib "$Bin/../app";
 use ApplicationCommon;
 
 use Test::Simple tests => 2;
