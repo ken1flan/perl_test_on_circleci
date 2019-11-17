@@ -11,23 +11,28 @@ executors:
 jobs:
   build:
     executor: my-executor
+    working_directory: /code
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+          key: cpanfile-cache-{{ .Environment.CI_CACHE_KEY }}-{{ checksum "cpanfile.snapshot" }}
       - run:
           name: carton install
           command: carton install --deployment
       - save_cache:
-          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+          key: cpanfile-cache-{{ .Environment.CI_CACHE_KEY }}-{{ checksum "cpanfile.snapshot" }}
           paths:
             - local
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./
   test:
     executor: my-executor
+    working_directory: /code
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "cpanfile.snapshot" }}
+      - attach_workspace:
+         at: .
       - run:
          name: waiting for mariadb to be ready
          command: |
@@ -43,8 +48,17 @@ jobs:
           mysql -h 127.0.0.1 -u root < create_tables.sql
           mysql -h 127.0.0.1 -u root circleci --execute="SELECT * FROM cats;"
       - run:
+         name: setup httpd
+         command: |
+           rm -rf /var/www
+           ln -s /code/app /var/www
+           httpd
+      - run:
          name: test
          command: APP_ENV=test carton exec perl test/test.pl
+      - run:
+         name: e2e_test
+         command: APP_ENV=test carton exec perl test/e2e_test.pl
 
 workflows:
   version: 2
