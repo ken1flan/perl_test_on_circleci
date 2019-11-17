@@ -2,9 +2,9 @@ use strict;
 use warnings;
 use utf8;
 
-use FindBin qw($Bin);
-use lib "$Bin/../app";
-use ApplicationCommon;
+use File::Basename;
+my $dir = dirname(__FILE__);
+require "${dir}/../app/ApplicationCommon.pm";
 
 use Test::Simple tests => 2;
 
