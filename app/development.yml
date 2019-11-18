@@ -1,6 +1,6 @@
 database:
-  dbname: circleci
-  host: "127.0.0.1"
+  dbname: CatsDB
+  host: mariadb
   user: root
   password: ""
   timeout: 10

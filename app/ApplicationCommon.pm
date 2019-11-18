@@ -3,13 +3,14 @@ package ApplicationCommon;
 use strict;
 use warnings;
 use utf8;
-use FindBin qw($Bin);
+use File::Basename;
 
 use Config::YAML;
 use DBI;
 
+our $app_root_dir = dirname(__FILE__);
 our $app_env = $ENV{APP_ENV} ? $ENV{APP_ENV} : 'development';
-our $config = Config::YAML->new(config => "$Bin/../${app_env}.yml");
+our $config = Config::YAML->new(config => "$app_root_dir/${app_env}.yml");
 our $dbh = DBI->connect(
   "DBI:MariaDB:dbname=".$config->{database}->{dbname}.
   ";host=".$config->{database}->{host}.
