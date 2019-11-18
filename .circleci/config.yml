@@ -51,7 +51,7 @@ jobs:
          command: |
            rm -rf /var/www
            ln -s /code/app /var/www
-           httpd
+           APP_ENV=test httpd
       - run:
          name: test
          command: APP_ENV=test carton exec perl test/test.pl
