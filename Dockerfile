@@ -15,15 +15,12 @@ RUN yum install -y wget
 RUN yum groupinstall -y "Development Tools"
 RUN yum install -y nmap-ncat
 
-RUN yum install -y httpd
-RUN yum install -y httpd-devel
+RUN yum install -y httpd httpd-devel
 RUN systemctl enable httpd.service
 COPY httpd/conf.d/01-cgi.conf /etc/httpd/conf.d
 EXPOSE 80
 
-RUN yum install -y mariadb
-RUN yum install -y mariadb-libs
-RUN yum install -y mariadb-devel
+RUN yum install -y mariadb mariadb-libs mariadb-devel
 COPY mariadb/character_set.cnf /etc/my.cnf.d/
 
 RUN yum install -y libpng libpng-devel
@@ -31,9 +28,7 @@ RUN yum install -y libpng libpng-devel
 COPY yum.repos.d/google-chrome.repo /etc/yum.repos.d
 RUN yum install -y google-chrome-stable
 
-RUN yum install -y perl
-RUN yum install -y perl-devel
-RUN yum install -y perl-App-cpanminus
+RUN yum install -y perl perl-devel perl-App-cpanminus
 RUN cpanm Carton
 
 CMD ["/usr/sbin/init"]
